@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\mavel\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mavel\\.nuget\\packages"
+    ]
+  }
+}

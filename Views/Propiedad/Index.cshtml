@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Proyecto.Models.Propiedad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Count() > 0)
+{
+    <div class="IndexPropiedades">
+        <p> Prueba de cuadro entero</p>
+        <div class="TituloPropiedades">
+            <h1>  Propiedades </h1>
+        </div>
+        <div class="FiltroPropiedades">
+            <form class="formulariofiltro" method="post" asp-controller="Propiedad" asp-action="Index">
+                <ul class="listafiltro">
+                    <li>
+                        <label for="estado"> Estado </label><br />
+                        <select name="estado">
+                            <option value="Ninguno">Ninguno</option>
+                            <option value="Jalisco">Jalisco</option>
+                            <option value="Aguacaliente">Aguascaliente</option>
+                            <option value="Michoacan">Michoacan</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="tipolocal">Tipo de propiedad</label><br />
+                        <select name="tipolocal">
+                            <option value="Ninguno">Ninguno</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Departamento">Departamento</option>
+                            <option value="Local">Local</option>
+                        </select>
+                    </li>
+                    <li>
+                        <p>Tipo de Operacion</p>
+                        <input type="radio" name="TipoO" value="Renta" /> Renta <br>
+                        <input type="radio" name="TipoO" value="Venta" /> Venta <br>
+                    </li>
+                    <li>
+                        <p>Rango de precio</p>
+                        <input type="number" name="min" placeholder="C.min" /><br />
+                        <input type="number" name="max" placeholder="C.max" />
+                    </li>
+                    <li>
+                        <p>Baños</p>
+                        <input type="number" name="baños" placeholder="C.Min" />
+                    </li>
+                    <li>
+                        <p>Cuartos</p>
+                        <input type="number" name="cuartos" placeholder="C.Max" />
+                    </li>
+                </ul>
+                <div>
+                    <button id="Aplicarfiltro">Aplicar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="ContenidoPropiedades">
+            <div class="AgregarPropiedad">
+                <a asp-controller="Propiedad" asp-action="Crear"> Agregar Propiedad </a>
+            </div>
+
+            <ul>
+                @foreach (var propiedad in Model)
+                {
+                    <li>
+                        <div class="ImagenPropiedad">
+                            <img src="https://assets.easybroker.com/property_images/2053063/31492143/EB-GW3063.jpeg?version=1614206440" />
+                        </div>
+                        <p>@propiedad.Id</p>
+                        <p>@propiedad.Estado</p>
+                        <p>@propiedad.Cuartos</p>
+                        <p>@propiedad.Baños</p>
+                        <p>@propiedad.Precio</p>
+                        <p>@propiedad.TipoOperacion</p>
+                        <p>@propiedad.TipoPropiedad</p>
+                        <div class="PropiedadCrud">
+                            <ul>
+                                <li><a asp-controller="Propiedad" asp-route-Id="@propiedad.Id" asp-action="Eliminar"> Eliminar </a></li>
+                                <li><a asp-controller="Propiedad" asp-route-Id="@propiedad.Id" asp-action="Actualizar"> Actualizar </a></li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+else
+{
+
+    <p>No tenemos propiedades</p>
+    <div class="AgregarPropiedad">
+        <a asp-controller="Propiedad" asp-action="Crear"> Agregar Propiedad </a>
+    </div>
+}
+
+
+
+

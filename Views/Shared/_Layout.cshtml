@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Proyecto</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    
+
+
+</head>
+<body>
+    
+         <div class="sidebar">
+             <div class="logo_content">
+                 <div class="logo">
+                     <i class="fab fa-elementor"></i>
+                     <div class="logo_name"> GRUPO EMCO</div>
+                 </div>
+                  <i class="fas fa-bars" id="btn" onclick="mover_sidebar();"></i>
+             </div>
+             <ul class="nav_list">
+                 <li>
+                     <i class="fas fa-search" onclick="mover_sidebar2();"></i>
+                     <input type="text" placeholder="Search..." />
+                     <span class="tooltip">Search</span> 
+                 </li>
+
+                 <li>
+                     <a asp-controller="home" asp-action="index">
+                         <i class="fas fa-border-all"></i>
+                         <span class="links_name">Sobre Nosotros</span>
+                     </a>
+                     <span class="tooltip">Nosotros</span> 
+                 </li>
+
+                 <li>
+                     <a href="#">
+                         <i class="far fa-user"></i>
+                         <span class="links_name">Usuarios</span>
+                     </a>
+                      <span class="tooltip">Usuarios</span> 
+                 </li>
+
+                 <li>
+                     <a asp-controller="Propiedad" asp-action="index">
+                         <i class="fas fa-home"></i>
+                         <span class="links_name">Propiedades</span>
+                     </a>
+                     <span class="tooltip">Propiedades</span> 
+                 </li>
+
+                 <li>
+                     <a href="#">
+                         <i class="fas fa-address-card"></i>
+                         <span class="links_name">Asesores</span>
+                     </a>
+                     <span class="tooltip">Asesores</span> 
+                 </li>
+
+                 <li>
+                     <a href="#">
+                         <i class="fas fa-user-friends"></i>
+                         <span class="links_name">Clientes</span>
+                     </a>
+                     <span class="tooltip">Clientes</span>
+                 </li>
+
+                 <li>
+                     <a href="#">
+                         <i class="fas fa-bookmark"></i>
+                         <span class="links_name">Ventas</span>
+                     </a>
+                     <span class="tooltip">Ventas</span>
+                 </li>
+
+                
+
+             </ul>
+             <div class="profile_content">
+                 <div class="profile">
+                     <div class="profile_details">
+                         <img src="~/img/usuario.png"/>
+                         <div class="name_job">
+                             <div class="name">Mario Avelar</div>
+                             <div class="job"> Ing.Software</div>
+                         </div>
+                     </div>
+                     <i class="fas fa-sign-out-alt" id="log_out"></i>
+                 </div>
+             </div>
+         </div>
+    <div class="home_content">
+        <div class="text">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+    
+   
+
+    <footer class="border-top footer text-muted">
+        <div class=".container-footer-all">
+
+            <div class="container-body">
+                <div class="column1">
+                    <h1> Bienvenido a Grupo EMCO Inmobiliaria</h1>
+
+                    <p>
+                        Encuentra tu nueva casa aquí. Ofrecemos un servicio personalizado y de calidad para atenderte en todas tus necesidades.
+                        Si necesitas asistencia o tienes preguntas, siéntete libre de contactarnos.
+                        Estaremos dispuestos a ayudarte.
+                    </p>
+                </div>
+                <div class="column2">
+                    <h1> Redes Sociales </h1>
+                    <div class="redes-container">
+                        <ul>
+                            <li>
+                                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="column3">
+                    <h1> Información Contactos</h1>
+
+                    <div class="row2">
+                        <i class="fas fa-home"></i>
+                        <label>
+                            Calle Otranto #2937,
+                            Col.Lomas de Providencia,
+                            44657 Guadalajara,
+                            ZapopanJalisco
+                        </label>
+                    </div>
+
+
+                    <div class="row2">
+                        <i class="fas fa-mobile"></i>
+                        <label>
+                            33-36-35-05 y 33-36-31-98
+                        </label>
+                    </div>
+
+
+                    <div class="row2">
+                        <i class="fas fa-envelope"></i>
+                        <label>
+                            info@grupoemco.com.mx
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-footer">
+            <div class="copyright">
+                © 2021 Grupo EMCO <font color="white"> Inmobiliaria </font>
+            </div>
+        </div>
+
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
